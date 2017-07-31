@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import LandingPage from './components/landing/LandingPage';
+import AppRouter from './components/AppRouter';
 
 class App extends Component {
   render() {
@@ -11,7 +11,7 @@ class App extends Component {
         </div>
 
         <div className="Content">
-          <LandingPage></LandingPage>
+          <AppRouter></AppRouter>
         </div>
 
         <div className="Footer">

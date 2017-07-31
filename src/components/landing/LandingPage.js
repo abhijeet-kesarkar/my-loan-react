@@ -1,8 +1,14 @@
 import React, { Component } from 'react';
-import { Card, CardImg, CardTitle, CardBlock, CardText, Button, CardSubtitle } from 'reactstrap';
+import { Card, CardImg, CardTitle, CardBlock, CardText, Button } from 'reactstrap';
+import {withRouter} from 'react-router-dom';
 import './LandingPage.css';
 
 class LandingPage extends Component {
+
+    applyNow = () => {
+        this.props.history.push('/apply');
+    }
+
     render() {
         return ( 
         <div className="LandingPageContainer">
@@ -11,7 +17,7 @@ class LandingPage extends Component {
                 <CardBlock>
                 <CardTitle>Personal Loan</CardTitle>
                 <CardText>Personal loan can help you meet unexpected expenses such as wedding expenditure, school or college fees, dream vacations, home renovation projects or even for the purchase of consumer durables. Applying for a personal loan is a lot easier, quick, and convenient.</CardText>
-                <Button>Apply Now</Button>
+                <Button onClick={this.applyNow}>Apply Now</Button>
                 </CardBlock>
             </Card>
             <Card>
@@ -19,7 +25,7 @@ class LandingPage extends Component {
                 <CardBlock>
                 <CardTitle>Credit Cards</CardTitle>
                 <CardText>Get amazing offers, deals, rewards & cashbacks on using credit card on all your different spends such as travel, entertainment, shopping, bill payments etc.</CardText>
-                <Button>Apply Now</Button>
+                <Button onClick={this.applyNow}>Apply Now</Button>
                 </CardBlock>
             </Card>
             <Card>
@@ -27,7 +33,7 @@ class LandingPage extends Component {
                 <CardBlock>
                 <CardTitle>SME Loans</CardTitle>
                 <CardText>Whether you are expanding into a new vertical or growing your existing business, you can avail of a small business loan for finance.</CardText>
-                <Button>Apply Now</Button>
+                <Button onClick={this.applyNow}>Apply Now</Button>
                 </CardBlock>
             </Card>
         </div>
@@ -35,4 +41,4 @@ class LandingPage extends Component {
     }
 }
 
-export default LandingPage;
+export default withRouter(LandingPage);

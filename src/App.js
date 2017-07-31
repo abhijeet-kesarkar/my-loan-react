@@ -1,12 +1,26 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
-import ApplicationContainer from './components/layout/ApplicationContainer';
+import LandingPage from './components/landing/LandingPage';
 
 class App extends Component {
   render() {
     return (
-      <ApplicationContainer></ApplicationContainer>
+      <div className="Container">
+        <div className="Header">
+          <h3>My Loans</h3>
+        </div>
+
+        <div className="Content">
+          <LandingPage></LandingPage>
+        </div>
+
+        <div className="Footer">
+          <footer>
+            <p>Contact information: <a href="mailto:someone@example.com">
+            someone@example.com</a>.</p>
+          </footer>
+        </div>     
+      </div>
     );
   }
 }

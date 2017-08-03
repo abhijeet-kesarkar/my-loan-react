@@ -6,7 +6,7 @@ import './LandingPage.css';
 class LandingPage extends Component {
 
     applyNow = () => {
-        this.props.history.push('/apply');
+        this.props.history.push('/mortgage');
     }
 
     render() {

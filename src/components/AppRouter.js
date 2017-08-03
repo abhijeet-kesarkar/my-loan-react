@@ -5,7 +5,8 @@ import {
 } from 'react-router-dom';
 
 import LandingPage from './landing/LandingPage';
-import LoanApplicationWizard from './application-wizard/LoanApplicationWizard';
+import { ROUTER_CONFIG } from '../config/Router';
+
 
 class AppRouter extends Component {
   render() {
@@ -13,7 +14,11 @@ class AppRouter extends Component {
       <Router>
         <div>
         <Route exact path="/" component={LandingPage}/>
-        <Route path="/apply" component={LoanApplicationWizard}/>
+        {
+          ROUTER_CONFIG.map(route => {
+            return <Route path={route.path} exact component={route.component} key={route.path}/>
+          })
+        }
         </div>
       </Router>
     );

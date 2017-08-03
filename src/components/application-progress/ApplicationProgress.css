@@ -1,0 +1,23 @@
+.StepsContainerNonMobile {
+    display: flex;
+    flex-flow: row nowrap;
+  justify-content: space-around;
+
+}
+.StepsContainerMobile {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+    display: none;
+
+}
+
+@media only screen and (max-width: 500px) {
+  [class*="StepsContainerMobile"] {
+        display: flex;
+    }
+
+    [class*="StepsContainerNonMobile"] {
+        display: none;
+    }
+}

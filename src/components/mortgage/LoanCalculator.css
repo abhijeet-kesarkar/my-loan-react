@@ -1,0 +1,17 @@
+.LoanCalulatorContainer {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  padding: 10px;
+}
+
+.LoanCalculatorItem.Form{
+  flex-grow: 2;
+  background-color: red;
+
+}
+
+.LoanCalculatorItem.Card{
+  background-color: green;
+
+}

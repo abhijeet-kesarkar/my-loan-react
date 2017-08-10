@@ -19,9 +19,9 @@ class Controls extends Component {
       currentStep = 0;
     }
     return (
-      <div>
-        {currentStep === 0 ? null : <Button onClick={ () => this.go(steps[currentStep - 1].path)}>Back</Button>}
-        {currentStep < steps.length - 1 ? <Button onClick={ () => this.go(steps[currentStep + 1].path)}>Continue</Button> : null}
+      <div className="ContentContainer ControlsContainer">
+        {currentStep === 0 ? null : <Button color="primary" onClick={ () => this.go(steps[currentStep - 1].path)}>Back</Button>}
+        {currentStep < steps.length - 1 ? <Button color="primary" onClick={ () => this.go(steps[currentStep + 1].path)}>Continue</Button> : null}
       </div>
     );
   }

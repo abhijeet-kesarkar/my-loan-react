@@ -16,9 +16,12 @@
 }
 
 .Content {
-  background-color: #fff;
   width: 80%;
   align-self: center;
+}
+
+.ContentContainer {
+  padding: 10px;
 }
 
 .Footer {

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Progress } from 'reactstrap';
+import { Progress, Button } from 'reactstrap';
 import { ROUTER_CONFIG } from '../../config/Router';
 import './ApplicationProgress.css';
 
@@ -14,15 +14,20 @@ class ApplicationProgress extends Component {
     const completion = 100 * (currentStep + 1) / steps.length;
     return (
       <div>
-        <div className="StepsContainerNonMobile">
-          {
-              steps.map(route => (<span key={route.title}>{route.title}</span>))
-          }
-        </div>
-        <div className="StepsContainerMobile">
+        <div className="StepsContainer NonMobile">
           {
               steps.map((route, index) => {
-                return index === currentStep ? <span key={route.title}>{route.title}</span> : <span key={route.title}>{index+1}</span>
+                let className = (index<currentStep ? "active" : (index===currentStep ? "current": "inactive"));
+                
+                return (<Button className={className} key={route.title}>{route.title}</Button>)
+                })
+          }
+        </div>
+        <div className="StepsContainer Mobile">
+          {
+              steps.map((route, index) => {
+                let className = (index<currentStep ? "active" : (index===currentStep ? "current": "inactive"));
+                return index === currentStep ? <Button className={className} key={route.title}>{route.title}</Button> : <Button className={className} key={route.title}>{index+1}</Button>
                 })
           }
         </div>

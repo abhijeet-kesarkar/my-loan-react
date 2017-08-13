@@ -27,7 +27,7 @@ class LoanRepaymentSummary extends Component {
                 <CardBlock>
                 <CardTitle>Repayment Summary</CardTitle>
                 <CardText>
-                  <h2>${repayment}</h2>
+                  <h2>{!isNaN(repayment) ? `$${repayment}`: '-'}</h2>
                 </CardText>
                   <Button size="sm" active={this.props.frequency === 'Weekly'} onClick={e=>this.props.onChange({'frequency':'Weekly'})}>Weekly</Button>{' '}
                   <Button size="sm" active={this.props.frequency === 'Fortnightly'} onClick={e=>this.props.onChange({'frequency':'Fortnightly'})}>Fortnightly</Button>{' '}

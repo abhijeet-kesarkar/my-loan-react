@@ -4,3 +4,17 @@ export const updateLoanDetails = loanDetails => {
     loanDetails
   }
 }
+
+export const updateIncomeDetails = incomeDetails => {
+  return {
+    type: 'UPDATE_INCOME_DETAILS',
+    incomeDetails
+  }
+}
+
+export const validateLoanDetails = (nextPage) => {
+  return {
+    type: 'VALIDATE_LOAN_DETAILS',
+    nextPage
+  }
+}

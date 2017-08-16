@@ -7,6 +7,5 @@ const loanDetails = (state = {amount:100, purpose:'Education', type: 'Fixed', fr
       return state
   }
 }
-
 export default loanDetails
 

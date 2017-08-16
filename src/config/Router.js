@@ -1,16 +1,16 @@
 
-import {LoanCalculator, PersonalDetails, FinancialDetails, Identification, Summary} from './Components';
+import {LoanCalculatorContainer, PersonalDetails, FinancialDetails, Identification, Summary} from './Components';
 
 export const ROUTER_CONFIG = [
                 {
                     path: '/mortgage',
                     title: 'Loan Calculator',
-                    component: LoanCalculator
+                    component: LoanCalculatorContainer
                 },
                 {
                     path: '/mortgage/calculator',
                     title: 'Loan Calculator',
-                    component: LoanCalculator
+                    component: LoanCalculatorContainer
                 },
                 {
                     path: '/mortgage/financial',

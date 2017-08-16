@@ -3,7 +3,7 @@ import { updateLoanDetails } from '../../actions'
 import LoanDetails from '../../components/mortgage/LoanDetails'
 
 const mapStateToProps = state => {
-  console.log('mapStateToProps', state);
+  console.log('LoanDetailsContainer mapStateToProps', state);
   return {
     ...state.loanDetails
   }

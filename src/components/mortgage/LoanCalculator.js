@@ -19,16 +19,12 @@ class LoanCalculator extends Component {
             </Col>
           </Row>
         </Container>
-        <Controls path={this.props.location.pathname}></Controls>
+        <Controls path={this.props.location.pathname} onNext={this.props.onNext}></Controls>
       </div>
     );
   }
 }
 LoanCalculator.propTypes = {
-  loanPurpose: PropTypes.string,
-  onChange: PropTypes.func,
-  loanType: PropTypes.string,
-  loanAmount: PropTypes.number,
-  loanDuration: PropTypes.number
+  onNext: PropTypes.func,
 };
 export default LoanCalculator;

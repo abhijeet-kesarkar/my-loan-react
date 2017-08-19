@@ -1,3 +1,5 @@
+import LoanDetailsValidator from '../validators/loanDetails';
+
 const loanDetails = (state = {amount:100, purpose:'Education', type: 'Fixed', frequency: 'Weekly'}, action) => {
   console.log('reducer ', state, action)
   switch (action.type) {
@@ -25,14 +27,8 @@ const loanDetails = (state = {amount:100, purpose:'Education', type: 'Fixed', fr
     const key = Object.keys(loanDetails)[0];
     console.log('validate loan details', key);
     let errors = {};
-
-    if( key ==='duration' && !loanDetails.duration ){
-      errors.duration = true;
-    }
-    else{
-      errors.duration = false;
-    }
-    return {errors};
+    errors[key] = !LoanDetailsValidator.validate(key, loanDetails[key]);
+    return { errors };
   }
 }
 export default loanDetails

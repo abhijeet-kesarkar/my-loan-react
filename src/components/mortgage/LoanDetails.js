@@ -37,9 +37,18 @@ class LoanDetails extends Component {
                 placeholder='Please select..' 
                 value={this.props.purpose} 
                 onChange={(e, data)=>this.props.onChange({'purpose':data.value})}
+                error={this.props.errors && this.props.errors.purpose}
                 />
-              <Form.Input label="How much would you like to borrow?">
-                <Input labelPosition='right'  placeholder="amount.." type="number" name="loanAmount" id="loanAmount" value={this.props.amount} onChange={e=>this.props.onChange({'amount':Number(e.target.value)})}>
+              <Form.Input label="How much would you like to borrow?" 
+                error={this.props.errors && this.props.errors.amount}>
+                <Input 
+                  labelPosition='right'  
+                  placeholder="amount.." 
+                  type="number" 
+                  name="loanAmount" 
+                  id="loanAmount" 
+                  value={this.props.amount} 
+                  onChange={e=>this.props.onChange({'amount':Number(e.target.value)})}>
                 <Label basic>$</Label>
                 <input />
                 <Label>.00</Label>

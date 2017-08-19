@@ -10,27 +10,32 @@ export const ROUTER_CONFIG = [
                 {
                     path: '/mortgage/calculator',
                     title: 'Loan Calculator',
-                    component: LoanCalculatorContainer
+                    component: LoanCalculatorContainer,
+                    icon: 'dollar',
                 },
                 {
                     path: '/mortgage/financial',
                     title: 'Financial Details',
-                    component: FinancialDetails
-                },
+                    component: FinancialDetails,
+                    icon: 'money',
+               },
                 {
                     path: '/mortgage/personal',
                     title: 'Personal Details',
-                    component: PersonalDetails
+                    component: PersonalDetails,
+                    icon: 'user',
                 },
                 {
                     path: '/mortgage/identity',
                     title: 'Identification',
-                    component: Identification                    
+                    component: Identification,                    
+                    icon: 'id badge',
                 },
                 {
                     path: '/mortgage/confirm',
                     title: 'Confirmation',
-                    component: Summary
+                    component: Summary,
+                    icon: 'dollar',
                 },
                 {
                     path: '/creditcard',

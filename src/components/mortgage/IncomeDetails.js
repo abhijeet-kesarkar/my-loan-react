@@ -1,31 +1,38 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import {Card, CardTitle, Form, FormGroup, Label, Input, InputGroup, InputGroupAddon} from 'reactstrap';
+import {Container, Form, Label, Input} from 'semantic-ui-react';
 import './IncomeDetails.css';
 
 class IncomeDetails extends Component {
   render() {
+    const incomeSourceOptions = [ 
+      { key: '1', value: 'Salary', text: 'Salary' },   
+      { key: '2', value: 'Rental', text: 'Rental' },   
+    ]
     return (
-      <Card className="ContentContainer">
-        <CardTitle>Income Details</CardTitle>
-        <Form >
-          <FormGroup>
-            <Label for="incomeSource">What is the source of income?</Label>
-            <Input type="select" name="incomeSource" id="incomeSource" placeholder="Please select" value={this.props.source} onChange={e=>this.props.onChange({'source':e.target.value})}>
-              <option>Please Select</option>
-              <option>Salary</option>
-              <option>Rental</option>
+      <Container>
+        <Form>
+          <Form.Select 
+            label='What is the source of income?' 
+            options={incomeSourceOptions} 
+            placeholder='Please select..' 
+            value={this.props.source} 
+            onChange={(e, data)=>this.props.onChange({'source':data.value})}
+            />
+          <Form.Input label="How much do you earn per month before tax?">
+            <Input 
+              labelPosition='right'  
+              placeholder="amount.." 
+              type="number" 
+              value={this.props.amount} 
+              onChange={e=>this.props.onChange({'amount':Number(e.target.value)})}>
+              <Label basic>$</Label>
+              <input />
+              <Label>.00</Label>
             </Input>
-          </FormGroup>
-          <FormGroup>
-            <Label for="incomeAmount">How much do you earn per month before tax?</Label>
-            <InputGroup>
-              <InputGroupAddon>$</InputGroupAddon>
-              <Input type="number" name="incomeAmount" id="incomeAmount" placeholder="amount.." value={this.props.amount} onChange={e=>this.props.onChange({'amount':Number(e.target.value)})}/>
-            </InputGroup>
-          </FormGroup>
-        </Form>
-      </Card>
+          </Form.Input>
+          </Form>
+      </Container>
             
     );
   }

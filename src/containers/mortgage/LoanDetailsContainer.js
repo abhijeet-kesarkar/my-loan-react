@@ -5,7 +5,7 @@ import LoanDetails from '../../components/mortgage/LoanDetails'
 const mapStateToProps = state => {
   console.log('LoanDetailsContainer mapStateToProps', state);
   return {
-    ...state.loanDetails
+    ...state.loanDetails,
   }
 }
 

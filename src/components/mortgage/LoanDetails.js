@@ -1,59 +1,73 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import {Card, Form, FormGroup, Label, Input, InputGroup, InputGroupAddon} from 'reactstrap';
+import {Container, Form, Label, Input} from 'semantic-ui-react';
 import './LoanDetails.css';
 
 class LoanDetails extends Component {
   render() {
+    const loanPurposeOptions = [ 
+      { key: '1', value: 'Purchase a new car', text: 'Purchase a new car' },   
+      { key: '2', value: 'Purchase an used car', text: 'Purchase an used car' },   
+      { key: '3', value: 'Refinance a loan', text: 'Refinance a loan' },   
+      { key: '4', value: 'Travel or Holiday', text: 'Travel or Holiday' },   
+      { key: '5', value: 'Home Improvement', text: 'Home Improvement' },   
+      { key: '6', value: 'Education', text: 'Education' },   
+      { key: '7', value: 'Medical', text: 'Medical' },   
+    ]
+    const yearOptions = [ 
+      { key: '1', value: 1, text: '1 year' },   
+      { key: '2', value: 2, text: '2 years' },   
+      { key: '3', value: 3, text: '3 years' },   
+      { key: '4', value: 4, text: '4 years' },   
+      { key: '5', value: 5, text: '5 years' },   
+      { key: '6', value: 6, text: '6 years' },   
+      { key: '7', value: 7, text: '7 years' },   
+    ]
+    const loanTypeOptions = [ 
+      { key: '1', value: 'Fixed', text: 'Fixed 10.5% Interest Rate' },   
+      { key: '2', value: 'Variable', text: 'Variable @11% Interest Rate' },   
+    ]
+
     return (
-      <Card className="ContentContainer">
+      <Container fluid>
         <Form >
-              <FormGroup>
-                <Label for="loanPurpose">What will you be using the loan for?</Label>
-                <Input type="select" name="loanPurpose" id="loanPurpose" placeholder="Please select" value={this.props.purpose} onChange={e=>this.props.onChange({'purpose':e.target.value})}>
-                  <option>Please Select</option>
-                  <option>Purchase a new car</option>
-                  <option>Purchase an used car</option>
-                  <option>Refinance a loan</option>
-                  <option>Travel or Holiday</option>
-                  <option>Home Improvement</option>
-                  <option>Education</option>
-                  <option>Medical</option>
+              <Form.Select 
+                label='What will you be using the loan for?' 
+                options={loanPurposeOptions} 
+                placeholder='Please select..' 
+                value={this.props.purpose} 
+                onChange={(e, data)=>this.props.onChange({'purpose':data.value})}
+                />
+              <Form.Input label="How much would you like to borrow?">
+                <Input labelPosition='right'  placeholder="amount.." type="number" name="loanAmount" id="loanAmount" value={this.props.amount} onChange={e=>this.props.onChange({'amount':Number(e.target.value)})}>
+                <Label basic>$</Label>
+                <input />
+                <Label>.00</Label>
                 </Input>
-              </FormGroup>
-              <FormGroup>
-                <Label for="loanAmount">How much would you like to borrow?</Label>
-                <InputGroup>
-                  <InputGroupAddon>$</InputGroupAddon>
-                  <Input type="number" name="loanAmount" id="loanAmount" placeholder="amount.." value={this.props.amount} onChange={e=>this.props.onChange({'amount':Number(e.target.value)})}/>
-                </InputGroup>
-              </FormGroup>
-              <FormGroup>
-                <Label for="loanDuration">Over what period will you repay the loan?</Label>
-                <Input type="select" name="loanDuration" id="loanDuration" value={this.props.duration} onChange={e=>this.props.onChange({'duration':Number(e.target.value)})}>
-                  <option>Please Select</option>
-                  <option value="1">1 Years</option>
-                  <option value="2">2 Years</option>
-                  <option value="3">3 Years</option>
-                  <option value="4">4 Years</option>
-                  <option value="5">5 Years</option>
-                </Input>
-              </FormGroup>
-              <FormGroup>
-                <Label for="loanType">What type of loan would you like?</Label>
-                <Input type="select" name="loanType" id="loanType" value={this.props.type} onChange={e=>this.props.onChange({'type':e.target.value})}>
-                  <option>Please Select</option>
-                  <option value="Fixed">Fixed 10.5% Interest Rate</option>
-                  <option value="Variable">Variable @11% Interest Rate</option>
-                </Input>
-              </FormGroup>
+              </Form.Input>
+              <Form.Select 
+                label='Over what period will you repay the loan?' 
+                options={yearOptions} 
+                placeholder='Please select..' 
+                value={this.props.duration} 
+                onChange={(e,data)=>this.props.onChange({'duration':Number(data.value)})}
+                error={this.props.errors && this.props.errors.duration}
+                />
+              <Form.Select 
+                label='What type of loan would you like?' 
+                options={loanTypeOptions} 
+                placeholder='Please select..' 
+                value={this.props.type} 
+                onChange={(e,data)=>this.props.onChange({'type':data.value})}
+                />
             </Form>
-          </Card>
+          </Container>
             
     );
   }
 }
 LoanDetails.propTypes = {
+  errors: PropTypes.object,
   purpose: PropTypes.string,
   type: PropTypes.string,
   amount: PropTypes.number,

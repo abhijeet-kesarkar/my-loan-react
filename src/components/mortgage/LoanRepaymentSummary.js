@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import {Card, CardBlock, CardText, CardTitle, Button, ButtonGroup} from 'reactstrap';
+import {Card, Button, Statistic} from 'semantic-ui-react';
 import './LoanRepaymentSummary.css';
 
 class LoanRepaymentSummary extends Component {
@@ -23,16 +23,21 @@ class LoanRepaymentSummary extends Component {
 
     repayment = Math.round(repayment);
     return (
-            <Card className="LoanRepaymentSummary">
-                <CardBlock>
-                <CardTitle>Repayment Summary</CardTitle>
-                <CardText>
-                  <h2>{!isNaN(repayment) ? `$${repayment}`: '-'}</h2>
-                </CardText>
-                  <Button size="sm" active={this.props.frequency === 'Weekly'} onClick={e=>this.props.onChange({'frequency':'Weekly'})}>Weekly</Button>{' '}
-                  <Button size="sm" active={this.props.frequency === 'Fortnightly'} onClick={e=>this.props.onChange({'frequency':'Fortnightly'})}>Fortnightly</Button>{' '}
-                  <Button size="sm" active={this.props.frequency === 'Monthly'} onClick={e=>this.props.onChange({'frequency':'Monthly'})}>Monthly</Button>
-                </CardBlock>
+            <Card fluid>
+              <Card.Content>
+                <Card.Header>Repayment Summary</Card.Header>
+                <Statistic>
+                  <Statistic.Value>{!isNaN(repayment) ? `$${repayment}`: '-'}</Statistic.Value>
+                  <Statistic.Label>per {this.props.frequency.replace('ly', '')}</Statistic.Label>
+                </Statistic>
+              </Card.Content>
+              <Card.Content extra>
+                <Button.Group>
+                  <Button compact toggle active={this.props.frequency === 'Weekly'} onClick={e=>this.props.onChange({'frequency':'Weekly'})}>Weekly</Button>
+                  <Button compact toggle active={this.props.frequency === 'Fortnightly'} onClick={e=>this.props.onChange({'frequency':'Fortnightly'})}>Fortnightly</Button>
+                  <Button compact toggle active={this.props.frequency === 'Monthly'} onClick={e=>this.props.onChange({'frequency':'Monthly'})}>Monthly</Button>
+                </Button.Group>
+              </Card.Content>
             </Card>
     );
   }

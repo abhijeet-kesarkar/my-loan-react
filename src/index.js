@@ -3,10 +3,10 @@ import {render} from 'react-dom';
 import './index.css';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
-import 'bootstrap/dist/css/bootstrap.css';
 import { createStore } from 'redux'
 import myLoansApp from './reducers'
 import { Provider } from 'react-redux'
+import './dist/semantic.min.css';
 
 let store = createStore(myLoansApp);
 

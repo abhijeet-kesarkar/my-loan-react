@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import {Controls, ApplicationProgress, LoanDetailsContainer, LoanRepaymentSummaryContainer} from '../../config/Components';
-import {Container, Row, Col} from 'reactstrap';
+import {Grid} from 'semantic-ui-react';
 import './LoanCalculator.css';
 
 class LoanCalculator extends Component {
@@ -9,16 +9,14 @@ class LoanCalculator extends Component {
     return (
       <div>
         <ApplicationProgress path={this.props.location.pathname}/>
-        <Container className="ContentContainer">
-          <Row>
-            <Col xs="12" md="8">
+        <Grid padded columns="equal">
+            <Grid.Column mobile="16" tablet="10" computer="10">
               <LoanDetailsContainer/>
-            </Col>
-            <Col xs="12" md="4">
+            </Grid.Column>
+            <Grid.Column mobile="16" tablet="6" computer="6">
               <LoanRepaymentSummaryContainer/>
-            </Col>
-          </Row>
-        </Container>
+            </Grid.Column>
+        </Grid>
         <Controls path={this.props.location.pathname} onNext={this.props.onNext}></Controls>
       </div>
     );
